@@ -1,6 +1,11 @@
+import { Show, SignIn, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { Bell, Mail, MessageSquare, User } from "lucide-react";
 
-const NavBar = () => {
+const NavBar = async () => {
+  const user = await auth()
+  console.log({user});
+  
   return (
     <header className="p-6">
       <nav className="flex items-center justify-between gap-2">
@@ -15,11 +20,19 @@ const NavBar = () => {
             <Bell className="size-3" />
           </div>
         </div>
-        <div className="w-0.5 h-6  border-slate-500" />
-        <div className="h-10 w-10 rounded-full border-2 bg-pink-100 flex justify-center items-center">
-            <User/>
+        <div>
+          <Show when="signed-out">
+            <SignInButton />
+            {/* <SignUpButton mode="modal">
+              <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                Sign Up
+              </button>
+            </SignUpButton> */}
+          </Show>
+          <Show when="signed-in">
+            <UserButton />
+          </Show>
         </div>
-        <h2>json rantin</h2>
       </nav>
     </header>
   );
