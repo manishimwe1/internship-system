@@ -1,11 +1,17 @@
-import { Show, SignIn, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import {
+  Show,
+  SignIn,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { Bell, Mail, MessageSquare, User } from "lucide-react";
 
 const NavBar = async () => {
-  const user = await auth()
-  console.log({user});
-  
+  const user = await auth();
+  console.log({ user });
+
   return (
     <header className="p-6">
       <nav className="flex items-center justify-between gap-2">
@@ -22,7 +28,7 @@ const NavBar = async () => {
         </div>
         <div>
           <Show when="signed-out">
-            <SignInButton />
+            <SignInButton mode="modal" />
             {/* <SignUpButton mode="modal">
               <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
                 Sign Up
