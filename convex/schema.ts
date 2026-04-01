@@ -1,12 +1,13 @@
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 
+
 export default defineSchema({
     users: defineTable({
-        name: v.string(),
+        name: v.optional(v.string()),
         clerkId: v.string(),
         image: v.string(),
-        role: v.union(v.literal('admin'), v.literal('student'), v.literal('teach'),),
+        role: v.union(v.literal('admin'), v.literal('student'), v.literal('teach'), v.literal('user'),),
         approved: v.boolean()
     }).index("by_clerkId", ["clerkId"]),
 
