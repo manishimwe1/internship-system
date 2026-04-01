@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 const navItems = [
   {
     label: "Dashboard",
-    link:'/',
+    link: "/",
     active: true,
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -18,8 +18,8 @@ const navItems = [
     ),
   },
   {
-    label: "New Student",
-    link: '/new-student',
+    label: "Student",
+    link: "/student",
     active: false,
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -29,7 +29,7 @@ const navItems = [
   },
   {
     label: "Inbox",
-    link: '/inbox',
+    link: "/inbox",
 
     active: false,
     icon: (
@@ -47,7 +47,7 @@ const navItems = [
   },
   {
     label: "Lesson",
-    link: '/lesson',
+    link: "/lesson",
 
     active: false,
     icon: (
@@ -67,7 +67,7 @@ const navItems = [
   },
   {
     label: "Task",
-    link: '/task',
+    link: "/task",
 
     active: false,
     icon: (
@@ -105,8 +105,7 @@ const navItems = [
 ];
 
 const SideBar = () => {
-  const pathname = usePathname()
-  
+  const pathname = usePathname();
 
   return (
     <div className="w-[220px] h-screen bg-white flex flex-col px-5 py-6 border-r border-gray-100 shadow-sm">
